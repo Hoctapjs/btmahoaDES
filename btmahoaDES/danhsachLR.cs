@@ -24,6 +24,7 @@ namespace btmahoaDES
                 lr.L = r0;
                 lr.EofR = lr.hoanvitheo_E(r0);
                 lr.KxorE = lr.Xor(k1, lr.EofR);
+                lr.ChiaK_Xor_E_Thanh_8_Phan(lr.KxorE);
 
             }
         }
