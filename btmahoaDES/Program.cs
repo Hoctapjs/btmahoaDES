@@ -30,6 +30,10 @@ namespace btmahoaDES
             // xử lý văn bản M
             vanban vb = new vanban();
             vb.xuatbanroM();
+
+            danhsachLR dslr = new danhsachLR();
+            
+            dslr.khoitaodanhsachLR(vb.L0, vb.R0, dscd.xuatkhoatheothutu(1));
             
 
             

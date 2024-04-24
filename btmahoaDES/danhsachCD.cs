@@ -32,7 +32,7 @@ namespace btmahoaDES
                 Console.WriteLine("khoa " + i + " theo C" + i + " D" + i + " truoc khi qua ham hoan vi PC-2 la: " + cd.Khoa_theo_cd);
                 Console.WriteLine("khoa " + i + " theo C" + i + " D" + i + " sau khi qua ham hoan vi PC-2 la: " + cd.Khoa_sau_pc2);
                 dsCD.Add(cd);
-                tempc = cd.C; 
+                tempc = cd.C;
                 tempd = cd.D;
                 Console.WriteLine("================================");
             }
@@ -45,6 +45,11 @@ namespace btmahoaDES
             {
                 dsCD[i].xuatcd();
             }
+        }
+
+        public string xuatkhoatheothutu(int I_of_K)
+        {
+            return dsCD[I_of_K - 1].Khoa_sau_pc2;
         }
     }
 }
