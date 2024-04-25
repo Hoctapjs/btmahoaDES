@@ -10,7 +10,7 @@ namespace btmahoaDES
     {
         List<LR> dsLR = new List<LR>();
 
-        public void khoitaodanhsachLR(string l0,string r0, string k1)
+        public void khoitaodanhsachLR(string l0, string r0, string k1)
         {
             string templ = l0;
             string tempr = r0;
@@ -22,11 +22,11 @@ namespace btmahoaDES
                 Console.WriteLine("vong lap thu , tao L{0}, R{0}", i);
                 LR lr = new LR();
                 lr.Ma = i;
-                lr.L = r0;
+                lr.L = tempr;
                 Console.WriteLine("L" + i + " cua chung ta la: " + lr.L);
                 lr.EofR = lr.hoanvitheo_E(r0);
                 Console.WriteLine("R0 sau khi di qua ham E: " + lr.EofR);
-                lr.KxorE = lr.Xor(k1, lr.EofR);
+                lr.KxorE = lr.XorE(k1, lr.EofR);
                 Console.WriteLine("K XOR E(R0): " + lr.KxorE);
                 Console.WriteLine("ta goi K XOR E(R0) la B: " + lr.InB());
                 lr.ChiaK_Xor_E_Thanh_8_Phan(lr.KxorE);
@@ -42,8 +42,11 @@ namespace btmahoaDES
                 }
                 Console.WriteLine("cac gia tri tao thanh chuoi nhi phan");
                 string SiBi_ALL_NhiPhan = lr.ChuyendoiThapPhansangNhiPhan();
-                Console.WriteLine("chuoi nhi phan cua SiBi tu 1 den 8 la: " + lr.ChuyendoiThapPhansangNhiPhan());
-
+                Console.WriteLine("chuoi nhi phan cua SiBi voi i tu 1 den 8 la: " + lr.ChuyendoiThapPhansangNhiPhan());
+                string f_func = lr.hoanvitheo_P(SiBi_ALL_NhiPhan);
+                Console.WriteLine("ham f cua K" + i + " va R" + (i - 1) + " la: " + f_func);
+                //lr.R = lr.Xor(templ, f_func);
+                //Console.WriteLine("R" + i + " duoc tinh bang xor cua L" + (i-1) + " va " + "f cua K" + i + " va R" + (i - 1) + " la: " + lr.R);
             }
         }
     }
