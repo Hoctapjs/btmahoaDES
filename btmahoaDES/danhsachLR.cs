@@ -47,7 +47,7 @@ namespace btmahoaDES
 
                 lr.KxorE = lr.XorE(khoak, lr.EofR);
                 Console.WriteLine("K XOR E(R" + (i - 1) + "): " + lr.KxorE);
-                Console.WriteLine("ta goi K XOR E(R" + (i - 1) + ") la B: " + lr.InB());
+                Console.WriteLine("ta goi K XOR E(R" + (i - 1) + ") la B: " + lr.KxorE);
                 lr.ChiaK_Xor_E_Thanh_8_Phan(lr.KxorE);
                 for (int j = 0; j < 8; j++)
                 {
