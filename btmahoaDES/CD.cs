@@ -25,6 +25,8 @@ namespace btmahoaDES
 
         }
 
+        public string[] KhoaKi = new string[] { "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", };
+
         public void xuatcd()
         {
             Console.WriteLine("-------------------------------");
@@ -35,6 +37,14 @@ namespace btmahoaDES
             Console.WriteLine("khoa " + Ma + " theo C" + Ma + " D" + Ma + " sau khi qua ham hoan vi PC-2 la: " + Khoa_sau_pc2);
             Console.WriteLine("================================");
         }
+
+        public virtual string laykhoaK(int i)
+        {
+            string kq = KhoaKi[i-1];
+            return kq;
+        }
+
+        
 
 
     }

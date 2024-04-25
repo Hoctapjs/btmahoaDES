@@ -29,8 +29,9 @@ namespace btmahoaDES
                 cd.Khoa_theo_cd = cd.C;
                 cd.Khoa_theo_cd = string.Format("{0}{1}", cd.Khoa_theo_cd, cd.D);
                 cd.Khoa_sau_pc2 = cd.hoanvitheopc_2(cd.Khoa_theo_cd);
+                cd.KhoaKi[i-1] = cd.Khoa_sau_pc2;
                 Console.WriteLine("khoa " + i + " theo C" + i + " D" + i + " truoc khi qua ham hoan vi PC-2 la: " + cd.Khoa_theo_cd);
-                Console.WriteLine("khoa " + i + " theo C" + i + " D" + i + " sau khi qua ham hoan vi PC-2 la: " + cd.Khoa_sau_pc2);
+                Console.WriteLine("khoa " + i + " theo C" + i + " D" + i + " sau khi qua ham hoan vi PC-2 la: " + cd.KhoaKi[i-1]);
                 dsCD.Add(cd);
                 tempc = cd.C;
                 tempd = cd.D;

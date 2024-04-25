@@ -119,6 +119,25 @@ namespace btmahoaDES
             return chuoicanhoanvi;
         }
 
+        public string XorP(string li, string p_of_F_func)
+        {
+            string chuoicanhoanvi = "";
+            for (int i = 0; i < P.Length; i++)
+            {
+                if (li[i] == p_of_F_func[i])
+                {
+                    char charToAdd = '0';
+                    chuoicanhoanvi = string.Format("{0}{1}", chuoicanhoanvi, charToAdd);
+                }
+                if (li[i] != p_of_F_func[i])
+                {
+                    char charToAdd = '1';
+                    chuoicanhoanvi = string.Format("{0}{1}", chuoicanhoanvi, charToAdd);
+                }
+            }
+            return chuoicanhoanvi;
+        }
+
         public void ChiaK_Xor_E_Thanh_8_Phan(string kxore)
         {
             for (int i = 0; i < 8; i++)
@@ -216,6 +235,11 @@ namespace btmahoaDES
                 chuoicanhoanvi = string.Format("{0}{1}", chuoicanhoanvi, charToAdd);
             }
             return chuoicanhoanvi;
+        }
+
+        public override string laykhoaK(int i)
+        {
+            return base.laykhoaK(i);
         }
 
 
