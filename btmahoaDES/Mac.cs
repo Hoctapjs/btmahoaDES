@@ -11,12 +11,12 @@ namespace btmahoaDES
 
         public Mac() { }
 
-        public static int TaoMac(string message, int seed)
+        public static int TaoMac(string message, int khoabimat)
         {
             int hash = 0;
             foreach (char c in message)
             {
-                hash = hash * seed + c; // Nhân hash với một "seed" và cộng với giá trị ký tự
+                hash = hash * khoabimat + c; // Nhân hash với một "seed" và cộng với giá trị ký tự
             }
             return hash;
         }

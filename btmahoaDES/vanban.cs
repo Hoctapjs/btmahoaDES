@@ -34,6 +34,18 @@ namespace btmahoaDES
             R0 = M_Sau_ip.Substring(32, M_Sau_ip.Length - 32);
         }
 
+        public void ThietLapGiaTriBanRo()
+        {
+            string mtlp = "";
+            Console.WriteLine("hay nhap vao ban ro M duoi dang Hex: ");
+            mtlp = Console.ReadLine();
+            M_Thap_luc_phan = mtlp;
+            M_Nhi_phan = HexToBinary(M_Thap_luc_phan);
+            M_Sau_ip = hoanvitheo_IP(M_Nhi_phan);
+            L0 = M_Sau_ip.Substring(0, 32);
+            R0 = M_Sau_ip.Substring(32, M_Sau_ip.Length - 32);
+        }
+
         public void xuatbanroM()
         {
             Console.WriteLine("dang thap luc phan cua M: " + M_Thap_luc_phan);

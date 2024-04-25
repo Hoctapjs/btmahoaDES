@@ -9,10 +9,12 @@ namespace btmahoaDES
     public class danhsachLR
     {
         List<LR> dsLR = new List<LR>();
+        string Str_For_Mac = "";
 
         public void khoitaodanhsachLR(string l0, string r0)
         {
             khoa k = new khoa();
+            k.nhapkhoak();
             Console.WriteLine("khoa k co gia tri: " + k.Khoak);
             string binary = k.HexToBinary();
             Console.WriteLine("khoa sau khi chuyen sang chuoi nhi phan: " + binary);
@@ -80,8 +82,14 @@ namespace btmahoaDES
                     Console.WriteLine("chuoi sau khi qua IP1 (nhi phan) la: " + ChuoiIP1_bina);
                     string ChuoiIP1_hexa = lr.ChuyenNhiPhan_Sang_ThapLucPhan(ChuoiIP1_bina);
                     Console.WriteLine("chuoi sau khi qua IP1 (thap luc phan) la: " + ChuoiIP1_hexa);
+                    Str_For_Mac = ChuoiIP1_hexa;
                 }
             }
+        }
+
+        public string LayChuoi()
+        {
+            return Str_For_Mac;
         }
     }
 }

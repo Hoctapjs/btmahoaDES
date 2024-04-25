@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Security.Cryptography;
 using System.Reflection;
+using System.Text;
+using System.Collections;
 
 namespace btmahoaDES
 {
@@ -27,20 +30,88 @@ namespace btmahoaDES
             //dscd.khoitao_ds_CD(cd0.C, cd0.D);
             //dscd.xuatdsCD();
             //kết thúc tạo khóa
-             //xử lý văn bản M
-            vanban vb = new vanban();
-            vb.xuatbanroM();
+            //xử lý văn bản M
 
-            danhsachLR dslr = new danhsachLR();
-            
-            dslr.khoitaodanhsachLR(vb.L0, vb.R0);
-            
+            int chon = 0;
+            string st_for_mac = "";
+            do
+            {
+                Menu();
+                Console.WriteLine("hay nhap lua chon cua ban: ");
+                chon = int.Parse(Console.ReadLine());
+                switch (chon)
+                {
+                    case 0:
+                        break;
+                    case 1:
+                        vanban vb = new vanban();
+                        vb.ThietLapGiaTriBanRo();
+                        vb.xuatbanroM();
+                        danhsachLR dslr = new danhsachLR();
+                        dslr.khoitaodanhsachLR(vb.L0, vb.R0);
+                        st_for_mac = dslr.LayChuoi();
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        // Khóa bí mật để tạo và kiểm tra MAC (HMAC)
+                        byte[] khoabimat = Encoding.UTF8.GetBytes("SecretKey123");
 
-            
+                        // Thông điệp cần được xác thực
+                        string thongdiep = st_for_mac;
+                        byte[] thongdiepBytes = Encoding.UTF8.GetBytes(thongdiep);
+
+                        // Tạo MAC
+                        byte[] mac;
+                        using (HMACSHA256 hmac = new HMACSHA256(khoabimat))
+                        {
+                            mac = hmac.ComputeHash(thongdiepBytes);
+                        }
+
+                        // In ra MAC (chuyển sang dạng hex để dễ đọc)
+                        Console.WriteLine("MAC: " + BitConverter.ToString(mac).Replace("-", ""));
+
+                        // Xác thực MAC
+                        bool kiemtra = Kiemtra_MAC(mac, thongdiepBytes, khoabimat);
+                        Console.WriteLine("MAC hop le: " + kiemtra);
+                        break;
+                    case 4:
+                        break;
+                    default:
+                        break;
+                }
+            } while (chon != 0);
+
+
+
+
+
+
+
 
 
 
             Console.ReadLine();
+        }
+
+        public static void Menu()
+        {
+            Console.WriteLine("----------Menu----------");
+            Console.WriteLine("- 1. Ma Hoa----------");
+            Console.WriteLine("- 2. Giai Ma----------");
+            Console.WriteLine("- 3. MAC----------");
+            Console.WriteLine("- 4. Kiem tra MAC----------");
+            Console.WriteLine("- 0. Thoat----------");
+        }
+
+        public static bool Kiemtra_MAC(byte[] Mac_can_kt, byte[] thongdiep, byte[] khoabimat)
+        {
+            using (HMACSHA256 hmac = new HMACSHA256(khoabimat))
+            {
+                byte[] Mac_duoc_tinhtoan = hmac.ComputeHash(thongdiep);
+                // So sánh MAC tính toán với MAC cung cấp
+                return StructuralComparisons.StructuralEqualityComparer.Equals(Mac_can_kt, Mac_duoc_tinhtoan);
+            }
         }
     }
 }

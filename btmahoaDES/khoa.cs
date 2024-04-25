@@ -17,10 +17,11 @@ namespace btmahoaDES
             Khoak = "133457799BBCDFF1";
         }
 
-        public khoa(string khoa)
-        {
-            Khoak = khoa;
-        }
+        //public khoa(strin)
+        //{
+        //    Console.WriteLine("nhap vao khoa k");
+        //    Khoak = Console.ReadLine();
+        //}
 
         public void nhapkhoak()
         {
