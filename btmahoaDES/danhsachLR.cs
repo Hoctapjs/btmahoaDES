@@ -28,7 +28,7 @@ namespace btmahoaDES
 
             danhsachCD dscd = new danhsachCD();
             dscd.khoitao_ds_CD(cd0.C, cd0.D);
-            dscd.xuatdsCD();
+            //dscd.xuatdsCD();
             string templ = l0;
             string tempr = r0;
             int sovonglap = 16;
@@ -68,6 +68,19 @@ namespace btmahoaDES
                 Console.WriteLine("R" + i + " duoc tinh bang xor cua L" + (i - 1) + " va " + "f cua K" + i + " va R" + (i - 1) + " la: " + lr.R);
                 templ = lr.L;
                 tempr = lr.R;
+                if (i == 16)
+                {
+                    string R16L16 = "";
+                    string charToAdd = lr.R;
+                    R16L16 = string.Format("{0}{1}", R16L16, charToAdd);
+                    charToAdd = lr.L;
+                    R16L16 = string.Format("{0}{1}", R16L16, charToAdd);
+                    Console.WriteLine("chuoi R16-L16 cua ta la: " + R16L16);
+                    string ChuoiIP1_bina = lr.hoanvitheo_IP_1(R16L16);
+                    Console.WriteLine("chuoi sau khi qua IP1 (nhi phan) la: " + ChuoiIP1_bina);
+                    string ChuoiIP1_hexa = lr.ChuyenNhiPhan_Sang_ThapLucPhan(ChuoiIP1_bina);
+                    Console.WriteLine("chuoi sau khi qua IP1 (thap luc phan) la: " + ChuoiIP1_hexa);
+                }
             }
         }
     }
