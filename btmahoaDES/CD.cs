@@ -13,6 +13,7 @@ namespace btmahoaDES
         string d;
         string khoa_theo_cd;
         string khoa_sau_pc2;
+        string khoa_truoc_pc2;
 
         public string C { get => c; set => c = value; }
         public string D { get => d; set => d = value; }
