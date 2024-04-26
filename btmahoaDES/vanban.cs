@@ -67,5 +67,24 @@ namespace btmahoaDES
             return chuoicanhoanvi;
         }
 
+        public string hoanvi_lai_theo_IP(string chuoisauip)
+        {
+            string chuoicanhoanvi = "";
+            for (int i = 0; i < IP.Length; i++)
+            {
+                for (int j = 0; j < IP.Length; j++)
+                {
+                    int dem = IP[j] - 1;
+                    if (dem == i)
+                    {
+                        char charToAdd = chuoisauip[j];
+                        chuoicanhoanvi = string.Format("{0}{1}", chuoicanhoanvi, charToAdd);
+                    }
+                }
+
+            }
+            return chuoicanhoanvi;
+        }
+
     }
 }

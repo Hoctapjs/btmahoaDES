@@ -105,6 +105,8 @@ namespace btmahoaDES
             return chuoicanhoanvi;
         }
 
+        
+
         public string XorE(string ki, string eofr)
         {
             string chuoicanhoanvi = "";
