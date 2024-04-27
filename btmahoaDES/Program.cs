@@ -53,10 +53,10 @@ namespace btmahoaDES
                         break;
                     case 2:
                         banmo bm = new banmo();
+                        bm.ThietLapGiaTriBanMo();
                         bm.Xuatbanmo();
                         danhsachLR dslrnd = new danhsachLR();
                         dslrnd.NgichDaoDanhSachLR(bm.L16, bm.R16);
-                        st_for_mac = dslrnd.LayChuoi();
 
 
 

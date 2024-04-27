@@ -44,6 +44,18 @@ namespace btmahoaDES
             Khoa_giai_ma = "133457799BBCDFF1";
         }
 
+        public void ThietLapGiaTriBanMo()
+        {
+            string ctlp = "";
+            Console.WriteLine("hay nhap vao ban mo C duoi dang Hex: ");
+            ctlp = Console.ReadLine();
+            Ban_mo_thap_luc_phan = ctlp;
+            Ban_mo_nhi_phan = HexToBinary(Ban_mo_thap_luc_phan);
+            Ban_mo_sau_ip = hoanvi_lai_theo_IP_1(Ban_mo_nhi_phan);
+            R16 = Bientam.Substring(0, 32);
+            L16 = Bientam.Substring(32, Bientam.Length - 32);
+        }
+
         public void Xuatbanmo()
         {
             Console.WriteLine("ban mo dang thap luc phan la: " + Ban_mo_thap_luc_phan);
